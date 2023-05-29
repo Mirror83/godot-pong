@@ -3,9 +3,13 @@ using System;
 
 public partial class Ball : CharacterBody2D
 {
+    [Signal]
+    public delegate void ExitLeftEventHandler();
+    [Signal]
+    public delegate void ExitRightEventHandler();
+
     [Export]
     public int Speed = 200;
-
     private bool hasLeftScreen = false;
 
     private Vector2 ballVelocity;
@@ -32,6 +36,7 @@ public partial class Ball : CharacterBody2D
         {
             if (!hasLeftScreen)
             {
+                EmitSignal(SignalName.ExitRight);
                 GD.Print("Just left the viewport from the right side");
                 hasLeftScreen = true;
             }
@@ -40,6 +45,7 @@ public partial class Ball : CharacterBody2D
         {
             if (!hasLeftScreen)
             {
+                EmitSignal(SignalName.ExitLeft);
                 GD.Print("Just left the viewport from the left side");
                 hasLeftScreen = true;
             }
