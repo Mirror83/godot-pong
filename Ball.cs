@@ -13,8 +13,8 @@ public partial class Ball : CharacterBody2D
     private bool hasLeftScreen = false;
 
     private Vector2 ballVelocity;
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+
+    private void AssignRandomStartVelocity()
     {
         ballVelocity = new Vector2(GD.RandRange(-1, 1), GD.RandRange(-1, 1));
         while (
@@ -28,27 +28,24 @@ public partial class Ball : CharacterBody2D
             ballVelocity = new Vector2(GD.RandRange(-1, 1), GD.RandRange(-1, 1));
         }
     }
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        AssignRandomStartVelocity();
+    }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _PhysicsProcess(double delta)
     {
         if (Position.X > (GetViewportRect().Size.X))
         {
-            if (!hasLeftScreen)
-            {
-                EmitSignal(SignalName.ExitRight);
-                GD.Print("Just left the viewport from the right side");
-                hasLeftScreen = true;
-            }
+            EmitSignal(SignalName.ExitRight);
+            GD.Print("Just left the viewport from the right side");
         }
         if (Position.X < 0)
         {
-            if (!hasLeftScreen)
-            {
-                EmitSignal(SignalName.ExitLeft);
-                GD.Print("Just left the viewport from the left side");
-                hasLeftScreen = true;
-            }
+            EmitSignal(SignalName.ExitLeft);
+            GD.Print("Just left the viewport from the left side");
         }
         if (Position.Y > GetViewportRect().Size.Y)
         {
@@ -64,6 +61,12 @@ public partial class Ball : CharacterBody2D
         {
             ballVelocity = ballVelocity.Bounce(collisionInfo.GetNormal());
         }
+    }
+
+    public void ResetPosition()
+    {
+        Position = new Vector2(GetViewportRect().Size.X / 2, GetViewportRect().Size.Y / 2);
+        AssignRandomStartVelocity();
     }
 
 

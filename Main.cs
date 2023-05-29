@@ -16,11 +16,13 @@ public partial class Main : Node
     public void OnBallExitRight()
     {
         GetNode<HUD>("HUD").UpdatePlayerOneScore();
+        GetNode<Ball>("Ball").ResetPosition();
     }
 
     public void OnBallExitLeft()
     {
         GetNode<HUD>("HUD").UpdatePlayerTwoScore();
+        GetNode<Ball>("Ball").ResetPosition();
     }
 
 }
