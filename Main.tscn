@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqoyjp5u3ybku"]
+
+[ext_resource type="PackedScene" uid="uid://dvtwtu7hvuedl" path="res://Ball.tscn" id="1_nynd8"]
+[ext_resource type="PackedScene" uid="uid://dskl6j8oxp0qc" path="res://Paddle.tscn" id="2_uonlr"]
+[ext_resource type="Script" path="res://PlayerOne.cs" id="3_v085v"]
+[ext_resource type="Script" path="res://PlayerTwo.cs" id="4_ovkks"]
+
+[node name="Main" type="Node"]
+
+[node name="Ball" parent="." instance=ExtResource("1_nynd8")]
+
+[node name="PlayerOne" parent="." instance=ExtResource("2_uonlr")]
+position = Vector2(50, 324)
+script = ExtResource("3_v085v")
+
+[node name="PlayerTwo" parent="." instance=ExtResource("2_uonlr")]
+position = Vector2(1104, 324)
+script = ExtResource("4_ovkks")
