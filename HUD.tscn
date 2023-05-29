@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c72bnwwxfwcwy"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_right = 44.0
+offset_bottom = 72.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="PlayerOneScore" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="Separator" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = ":"
+
+[node name="PlayerTwoScore" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
