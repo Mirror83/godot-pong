@@ -40,12 +40,10 @@ public partial class Ball : CharacterBody2D
         if (Position.X > (GetViewportRect().Size.X))
         {
             EmitSignal(SignalName.ExitRight);
-            GD.Print("Just left the viewport from the right side");
         }
         if (Position.X < 0)
         {
             EmitSignal(SignalName.ExitLeft);
-            GD.Print("Just left the viewport from the left side");
         }
         if (Position.Y > GetViewportRect().Size.Y)
         {
