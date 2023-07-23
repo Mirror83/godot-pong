@@ -24,5 +24,10 @@ script = ExtResource("4_ovkks")
 [node name="HUD" parent="." instance=ExtResource("5_x3an0")]
 script = ExtResource("7_qrdow")
 
+[connection signal="GameOver" from="." to="Ball" method="OnMainGameOver"]
+[connection signal="GameOver" from="." to="PlayerOne" method="OnMainGameOver"]
+[connection signal="GameOver" from="." to="PlayerTwo" method="OnMainGameOver"]
+[connection signal="PlayerOneWin" from="." to="HUD" method="OnPlayerOneWin"]
+[connection signal="PlayerTwoWin" from="." to="HUD" method="OnPlayerTwoWin"]
 [connection signal="ExitLeft" from="Ball" to="." method="OnBallExitLeft"]
 [connection signal="ExitRight" from="Ball" to="." method="OnBallExitRight"]
