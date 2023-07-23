@@ -14,4 +14,9 @@ public partial class PlayerOne : Paddle
         MoveOnKeyPress(PaddleKeyMaps.PlayerOneUp, PaddleKeyMaps.PlayerOneDown);
     }
 
+    public void OnMainGameOver()
+    {
+        canMove = false;
+    }
+
 }

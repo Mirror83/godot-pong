@@ -24,4 +24,16 @@ public partial class HUD : CanvasLayer
         var playerTwoScoreLabel = GetNode<Label>("LabelContainer/PlayerTwoScore");
         playerTwoScoreLabel.Text = playerTwoScore.ToString();
     }
+
+    public void OnPlayerOneWin()
+    {
+        var winnerLabel = GetNode<Label>("WinnerLabel");
+        winnerLabel.Text = "Player One Wins!";
+    }
+
+    public void OnPlayerTwoWin()
+    {
+        var winnerLabel = GetNode<Label>("WinnerLabel");
+        winnerLabel.Text = "Player Two Wins!";
+    }
 }
