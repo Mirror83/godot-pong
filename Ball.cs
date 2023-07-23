@@ -54,6 +54,7 @@ public partial class Ball : CharacterBody2D
             ballVelocity.Y *= -1;
         }
 
+        // Handle collision with paddles
         var collisionInfo = MoveAndCollide(ballVelocity * Speed * (float)delta);
         if (collisionInfo != null)
         {
