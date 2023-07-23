@@ -3,6 +3,8 @@ using System;
 
 public partial class Main : Node
 {
+    public int PlayerOneScore { get; set; } = 0;
+    public int PlayerTwoScore { get; set; } = 0;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -15,13 +17,15 @@ public partial class Main : Node
 
     public void OnBallExitRight()
     {
-        GetNode<HUD>("HUD").UpdatePlayerOneScore();
+        PlayerOneScore++;
+        GetNode<HUD>("HUD").UpdatePlayerOneScore(PlayerOneScore);
         GetNode<Ball>("Ball").ResetPosition();
     }
 
     public void OnBallExitLeft()
     {
-        GetNode<HUD>("HUD").UpdatePlayerTwoScore();
+        PlayerTwoScore++;
+        GetNode<HUD>("HUD").UpdatePlayerTwoScore(PlayerTwoScore);
         GetNode<Ball>("Ball").ResetPosition();
     }
 

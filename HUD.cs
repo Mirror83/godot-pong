@@ -14,18 +14,14 @@ public partial class HUD : CanvasLayer
     {
     }
 
-    public void UpdatePlayerOneScore()
+    public void UpdatePlayerOneScore(int playerOneScore)
     {
         var playerOneScoreLabel = GetNode<Label>("LabelContainer/PlayerOneScore");
-        var playerOneScore = playerOneScoreLabel.Text.ToInt();
-        playerOneScore++;
         playerOneScoreLabel.Text = playerOneScore.ToString();
     }
-    public void UpdatePlayerTwoScore()
+    public void UpdatePlayerTwoScore(int playerTwoScore)
     {
         var playerTwoScoreLabel = GetNode<Label>("LabelContainer/PlayerTwoScore");
-        var playerTwoScore = playerTwoScoreLabel.Text.ToInt();
-        playerTwoScore++;
         playerTwoScoreLabel.Text = playerTwoScore.ToString();
     }
 }
